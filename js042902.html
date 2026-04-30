@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=East+Sea+Dokdo&family=Gasoek+One&family=Gugi&family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100..900&family=Yeon+Sung&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family:"Noto Sans KR", sans-serif;
+        }
+        h1{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 50px;
+            color: #453A94;
+        }
+        body{
+            background : linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #log{
+            width: 400px;
+            height: 600px;
+            background: #eef2f390;
+            margin: 100px 200px;
+            border: 1px solid rgba(125, 125, 125, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            border-radius: 5px;
+        }
+        #logtitle{
+            width: 100%;
+            height: 50px;
+            font-size: 40px;
+            text-align: center;
+            line-height: 50px;
+        }
+        #logBox{
+            width: 100%;
+            height: 400px;
+            padding: 20px;
+            text-align: right;
+            font-size: 24px;
+            overflow: scroll;
+        }
+        #logBox p{
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+        }
+        #del{
+            width: 200px;
+            height: 50px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 50px;
+            background: #e43a15;
+            transition: all 0.3s;
+            box-shadow: inset 0 -2px 1px #c13636,
+                        inset 0 2px 1px #f86d31,
+                        0 4px 4px -4px #f86d31,
+                        -4px 4px 4px rgba(85, 85, 85, 0.2);
+            color: white;
+        }
+        #del:hover{
+            background-color: #e65245;
+            cursor: pointer;
+        }
+        .container{
+            margin: 50px 200px;
+            width: 400px;
+            height: 600px;
+            background: linear-gradient(180deg, #cfd9df, #cbd5db);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(125, 125, 125, 0.8);
+            border-radius: 5px;
+            flex-wrap: wrap;
+            box-shadow: inset 0 -8px 3px #7e808b,
+                        inset 0 8px 3px #E2EBF0,
+                        -4px 14px 12px rgba(85, 85, 85, 0.3);
+        }
+        #dis{
+            text-align: right;
+            width: 280px;
+            height: 80px;
+            line-height: 80px;
+            background: #eef2f3;
+            margin: 10px auto;
+            padding: 0 15px;
+            font-size: 24px;
+            border-radius: 5px;
+            border: 1px solid rgba(125, 125, 125, 0.5);
+        }
+        .outBox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 300px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .outBox div{
+            width: 50px;
+            height: 50px;
+            background-color: #989898;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            transition: all 0.3s;
+            /* border: 1px solid rgba(125, 125, 125, 0.5); */
+            box-shadow: inset 0 -2px 1px rgb(85, 85, 85),
+                        inset 0 2px 1px rgb(222, 222, 222),
+                        -4px 4px 4px rgba(85, 85, 85, 0.2);
+        }
+        .outBox div:hover{
+            cursor: pointer;
+            background-color: #8f8f8f;
+        }
+        .outBox .box1{
+            width: 85px;
+            background-color: #e43a15;
+            transition: all 0.3s;
+            box-shadow: inset 0 -2px 1px #c13636,
+                        inset 0 2px 1px #f86d31,
+                        -4px 4px 4px rgba(85, 85, 85, 0.2);
+        }
+        .outBox .box1:hover{
+            background-color: #e65245;
+            cursor: pointer;
+        }
+        .outBox .box2{
+            color: black;
+            width: 85px;
+            background-color: #A3BDED;
+            transition: all 0.3s;
+            box-shadow: inset 0 -2px 1px #5d6682,
+                        inset 0 2px 1px #c4dfff,
+                        -4px 4px 4px rgba(85, 85, 85, 0.2);
+        }
+        .outBox .box2:hover{
+            background-color: #6991C7;
+            cursor: pointer;
+        }
+        .outBox .zero{
+            width: 120px;
+        }
+        .outBox .plus, .outBox .minus, .outBox .box3{
+            background: #eef2f3;
+            color: black;
+            font-weight: bold;
+            box-shadow: inset 0 -2px 1px #b2b6ba,
+                        inset 0 2px 1px rgb(255, 255, 255),
+                        -4px 4px 4px rgba(85, 85, 85, 0.2);
+        }
+        .outBox .plus:hover, .outBox .minus:hover, .outBox .box3:hover{
+            background-color: #d9e9f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML, CSS, javascript로 제작한 계산기</h1>
+    <div id="log">
+        <div id="logtitle"><p>log</p><br></div>
+        <div id="logBox"></div>
+        <div id="del">delete</div>
+    </div>
+    <div class="container">
+        <div id="dis">0</div>
+        <div class="outBox">
+            <div class="box box1" data-num="clear">clear</div>
+            <div class="box box2" data-num="back">back</div>
+            <div class="box plus" data-num="*">×</div>
+            <div class="box" data-num="7">7</div>
+            <div class="box" data-num="8">8</div>
+            <div class="box" data-num="9">9</div>
+            <div class="box minus" data-num="/">÷</div>
+            <div class="box" data-num="4">4</div>
+            <div class="box" data-num="5">5</div>
+            <div class="box" data-num="6">6</div>
+            <div class="box minus" data-num="-">－</div>
+            <div class="box" data-num="1">1</div>
+            <div class="box" data-num="2">2</div>
+            <div class="box" data-num="3">3</div>
+            <div class="box plus" data-num="+">＋</div>
+            <div class="box" data-num=".">.</div>
+            <div class="box zero" data-num="0">0</div>
+            <div class="box box3" data-num="=">＝</div>
+        </div>
+    </div>
+    
+    <script>
+        const boxs = document.querySelectorAll(".box")
+        const dis = document.querySelector("#dis")
+        const logBox = document.querySelector("#logBox")
+        const del = document.querySelector("#del")
+
+        let expr = ''
+        boxs.forEach((item)=>{
+            item.addEventListener("click", function(){
+                let v = item.dataset.num
+                console.log(expr)
+
+                if(v === "clear"){
+                    expr = ''
+                    dis.innerHTML = '0'
+                    return
+                    // return => if문 밖으로 나가는 명령어
+                }else if(v === "back"){
+                    expr = expr.slice(0,-1)
+                    dis.innerHTML = expr === '' ? 0 : expr
+                    return
+                }else if(v === "="){
+                    if(expr === "" || expr.endsWith("+") || expr.endsWith("-") || expr.endsWith("*") || expr.endsWith("/") ){
+                        dis.innerHTML = "error"
+                        expr = ''
+                        return
+                    }
+                    let res = eval(expr)
+                    expr = String(expr)
+                    dis.innerHTML = Number(res).toLocaleString()
+                    logBox.innerHTML += Number(res).toLocaleString()+ "<br>"
+                    return
+                }
+                expr += v
+                expr = String(expr)
+                dis.innerHTML = expr
+                return
+            })
+        })
+        del.addEventListener("click", function(){
+            logBox.innerHTML = ''
+        })
+    </script>
+</body>
+</html>
