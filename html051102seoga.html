@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css"/>
+    <style>
+        header{
+            width: 100%;
+            height: 100px;
+            color: white;
+            position: absolute;
+        }
+        nav{
+            width: 100%;
+            height: 100px;
+            display: flex;
+            background-color: rgba(0, 38, 27, 0.8);
+            justify-content: center;
+            align-items: start;
+            transition: all 0.3s;
+            overflow: hidden;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+        }
+        nav.on{
+            height: 500px;
+        }
+        .logo{
+            width: 30%;
+            height: 100px;
+            font-size: 40px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+        .gnb{
+            width: 50%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .gnb > li{
+            width: calc(100%/5);
+            height: 100px;
+        }
+        .gnb > li > a{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            font-size: 18px;
+        }
+        .menu{
+            width: 20%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu a img{
+            width: 40px;
+        }
+        .snb{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 10px;
+        }
+        .btn{
+            width: 100px;
+            height: 500px;
+            position: fixed;
+            z-index: 10;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            color: white;
+            font-size: 14px;
+            font-weight: 100;
+        }
+        .btn div{
+            width: 75px;
+            height: 75px;
+            background-color: rgba(0,0,0,0.7);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn > div > img{
+            width: 30px;
+            height: 30px;
+        }
+        .main{
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background-image: url("./img/main_visual_02.jpg");
+            display: none;
+        }
+        #se01{
+            display: flex;
+            flex-direction: column;
+        }
+        .story{
+            width: 100%;
+            height: 600px;
+            background-image: url(./img/sub01_01_visual.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            color: white;
+            flex-direction: column;
+        }
+        hr{
+            width: 50px;
+            height: 1px;
+            margin: 10px 0;
+            border: 1px solid white;
+        }
+        .story01{
+            width: 80%;
+            height: 600px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid red;
+            margin: 0 auto;
+        }
+        .story01text{
+            width: 50%;
+            height: 100%;
+            border: 1px solid blue;
+        }
+        .story01text > h2{
+            color: rgb(0, 38, 27);
+        }
+        .story01img{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .concept{
+            position: relative;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+        section{
+            display: none;
+        }
+        section.on{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo"><a href="#main"><img src="./img/seoga_logo.png" alt="logo"/></a></div>
+            <ul class="gnb">
+                <li>
+                    <a href="#story" onclick="showpage(0)">서가앤쿡</a>
+                    <ul class="snb">
+                        <li><a href="#story" onclick="showpage(0)">스토리</a></li>
+                        <li><a href="#concept" onclick="showpage(0)">컨셉</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="showpage()">메뉴</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage()">한정 메뉴</a></li>
+                        <li><a href="#" onclick="showpage()">NEW플레이트</a></li>
+                        <li><a href="#" onclick="showpage()">ORIGINAL 한상</a></li>
+                        <li><a href="#" onclick="showpage()">스테이크 샐러드</a></li>
+                        <li><a href="#" onclick="showpage()">파히타</a></li>
+                        <li><a href="#" onclick="showpage()">파스타</a></li>
+                        <li><a href="#" onclick="showpage()">필라프/리조또</a></li>
+                        <li><a href="#" onclick="showpage()">피자</a></li>
+                        <li><a href="#" onclick="showpage()">사이드</a></li>
+                        <li><a href="#" onclick="showpage()">음료</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="showpage()">매장</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage()">매장 검색</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="showpage()">창업 안내</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage()">브랜드 경쟁력</a></li>
+                        <li><a href="#" onclick="showpage()">창업 절차 및 비용</a></li>
+                        <li><a href="#" onclick="showpage()">창업 Q&A</a></li>
+                        <li><a href="#" onclick="showpage()">창업 삼당 신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="showpage()">고객 문의</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage()">유용한 질문(FAQ)</a></li>
+                        <li><a href="#" onclick="showpage()">고객의 소리</a></li>
+                    </ul>
+                </li>
+                <div class="menu">
+                    <a href="#" onclick="showpage()"><img id="menuIcon" src="./img/menu_icon.png" alt="menu"/></a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="btn">
+        <div><img src="./img/icon_navi_04.svg" alt="icon4"/></div><p>SNS</p>
+        <div><img src="./img/icon_navi_02.svg" alt="icon2"/></div><p>고객센터</p>
+        <div><img src="./img/icon_navi_01.svg" alt="icon1"/></div><p>가맹문의</p>
+        <div><img src="./img/icon_navi_03.svg" alt="icon3"/></div><p>패밀리공간</p>
+    </div>
+    <div class="main">
+    </div>
+    <div class="show">
+        <section id="se01" class="on">
+            <div class="show story" id="story">
+                <h1>서가앤쿡</h1>
+                <hr>
+                <p>서가앤쿡은 신선한 식자재들로 정성껏 요리하여 남녀노소 누구에게나 사랑받고 있습니다.</p>
+            </div>
+            <div class="story01">
+                <div class="story01text">
+                    <h2>시작 (첫걸음)</h2>
+                    <h1>작은 서가에서<br>
+                        캐주얼 패밀리 레스토랑<br>
+                        서가앤쿡으로
+                    </h1>
+                    <hr>
+                    <p>서가앤쿡은 2006년 대구 동성로에서 [서가] 라는 10평 남짓의 작은 레스토랑에서 레몬 생맥주와 푸짐한 음식을 판매하는 것을 시작으로 2007년부터 [서가앤쿡]으로 브랜드네임을 런칭하면서 본격적인 레스토랑 사업을 시작하게 되었습니다.
+                        캐주얼 패밀리 레스토랑의 문화를 만들어낸 서가앤쿡은 신선한 식자재들로 정성껏 요리하여 남녀노소 누구에게나 사랑받고 있습니다.</p>
+                </div>
+                <div class="story01img">
+                    <img src="./img/sub01_01_bg01.jpg" alt="story01"/>
+                </div>
+            </div>
+            <div class="show concept" id="concept">
+                <h1>CONCEPT</h1>
+            </div>
+        </section>
+        <section></section>
+    </div>
+    <script>
+        let gnb = document.querySelector(".gnb")
+        let nav = document.querySelector(".nav")
+        let main = document.querySelector(".main")
+        let show = document.querySelectorAll(".show > section")
+
+        gnb.addEventListener("mouseenter", function(){
+            nav.classList.add("on")
+        })
+        gnb.addEventListener("mouseleave", function(){
+            nav.classList.remove("on")
+        })
+        function showpage(num){
+            main.style.display = "none"
+            show.forEach(function(item){
+                item.classList.remove("on")
+            })
+            show[num].classList.add("on")
+        }
+    </script>
+</body>
+</html>
